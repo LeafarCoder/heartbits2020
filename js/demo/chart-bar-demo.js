@@ -32,13 +32,13 @@ var ctx = document.getElementById("myBarChart");
 var myBarChart = new Chart(ctx, {
   type: 'horizontalBar',
   data: {
-    labels: ["Hosp1", "Hosp2", "Hosp3", "Hosp4"],
+    labels: ["H. São João", "H. Braga", "H. Santa Maria", "H. Faro"],
     datasets: [{
       label: "Pontos",
       backgroundColor: "#4e73df",
       hoverBackgroundColor: "#2e59d9",
       borderColor: "#4e73df",
-      data: [16,14,18,15],
+      data: [20,18,16,15],
     }],
   },
   options: {
