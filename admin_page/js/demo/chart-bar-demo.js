@@ -30,15 +30,15 @@ function number_format(number, decimals, dec_point, thousands_sep) {
 // Bar Chart Example
 var ctx = document.getElementById("myBarChart");
 var myBarChart = new Chart(ctx, {
-  type: 'bar',
+  type: 'horizontalBar',
   data: {
-    labels: ["January", "February", "March", "April", "May", "June"],
+    labels: ["Hosp1", "Hosp2", "Hosp3", "Hosp4"],
     datasets: [{
-      label: "Revenue",
+      label: "Pontos",
       backgroundColor: "#4e73df",
       hoverBackgroundColor: "#2e59d9",
       borderColor: "#4e73df",
-      data: [4215, 5312, 6251, 7841, 9821, 14984],
+      data: [16,14,18,15],
     }],
   },
   options: {
@@ -52,9 +52,9 @@ var myBarChart = new Chart(ctx, {
       }
     },
     scales: {
-      xAxes: [{
+      yAxes: [{
         time: {
-          unit: 'month'
+          unit: 'points'
         },
         gridLines: {
           display: false,
@@ -65,15 +65,15 @@ var myBarChart = new Chart(ctx, {
         },
         maxBarThickness: 25,
       }],
-      yAxes: [{
+      xAxes: [{
         ticks: {
           min: 0,
-          max: 15000,
-          maxTicksLimit: 5,
+          max: 20,
+          maxTicksLimit: 0,
           padding: 10,
           // Include a dollar sign in the ticks
           callback: function(value, index, values) {
-            return '$' + number_format(value);
+            return number_format(value);
           }
         },
         gridLines: {
@@ -103,7 +103,7 @@ var myBarChart = new Chart(ctx, {
       callbacks: {
         label: function(tooltipItem, chart) {
           var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
-          return datasetLabel + ': $' + number_format(tooltipItem.yLabel);
+          return datasetLabel + ': ' + number_format(tooltipItem.yLabel);
         }
       }
     },
